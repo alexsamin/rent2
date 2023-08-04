@@ -1,42 +1,56 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, SafeAreaView, Platform, View, Text, TextInput } from 'react-native'
+
+import { Feather, Ionicons } from '@expo/vector-icons'
+
+import PostItems from './src/components/postItems'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      {/* <Text>Arise & Shine!</Text> */}
-      <View style={{ display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-        <Image source={{ uri: 'https://picsum.photos/200' }} style={styles.postImage} />
-        <View style={styles.textDescription}>
-          <View>
-            <Text>Property Heading</Text>
-            <Text>Apartement in New Year</Text>
+    <SafeAreaView style={styles.safeAreaViewForAndroid}>
+      <View style={styles.searchContainer}>
+        <View style={styles.searchHeader}>
+          <Feather name="search" size={20} color="black" />
+          <TextInput placeholder="Search in Rent.com" style={{ width: '100%', marginLeft: 5 }} multiline={false} />
+        </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', paddingHorizontal: 10 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Ionicons name="location" size={24} color="black" />
+            <Text style={{ marginLeft: 5 }}>Location</Text>
+            <Text style={{ fontWeight: 'bold', marginLeft: 5 }}>New York</Text>
           </View>
-          <Text>100 $ / day</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Ionicons name="md-settings-sharp" size={24} color="black" />
+            <Text style={{ marginLeft: 5 }}>Category</Text>
+            <Text style={{ fontWeight: 'bold', marginLeft: 5 }}>Vehicle</Text>
+          </View>
         </View>
       </View>
-    </View>
+      <PostItems />
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeAreaViewForAndroid: {
     flex: 1,
-    backgroundColor: 'lavendar',
+    paddingTop: Platform.OS === 'android' ? 25 : 0,
+    backgroundColor: '#fec85c60',
+  },
+  searchContainer: {
+    padding: 10,
+    backgroundColor: '#fec85c',
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    width: '100%',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
-  postImage: {
-    height: 100,
-    width: 100,
-    borderRadius: 20,
-    marginHorizontal: 10,
-    marginVertical: 20,
-  },
-  textDescription: {
-    justifyContent: 'space-around',
-    marginTop: 10,
-    marginBottom: 10,
+  searchHeader: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    margin: 10,
+    padding: 10,
+    borderRadius: 10,
   },
 })
