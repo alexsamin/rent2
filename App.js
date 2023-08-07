@@ -1,4 +1,5 @@
 import { StyleSheet, SafeAreaView, Platform } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
 
 import colors from './src/modal/color'
 
@@ -8,6 +9,7 @@ import PostItems from './src/components/postItems'
 export default function App() {
   return (
     <SafeAreaView style={styles.safeAreaViewForAndroid}>
+      <StatusBar style="auto" backgroundColor="#fec85c40" />
       <HeaderForMobile />
       <PostItems />
     </SafeAreaView>

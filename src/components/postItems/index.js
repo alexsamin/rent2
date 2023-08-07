@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar'
 import { Text, View, Image } from 'react-native'
 
 import styles from './styles'
@@ -6,7 +5,6 @@ import styles from './styles'
 const PostItems = () => {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" backgroundColor="#fec85c40" />
       <View style={styles.postMainContainer}>
         <Image source={{ uri: 'https://picsum.photos/200' }} style={styles.postImage} />
         <View style={styles.postContentWrap}>
