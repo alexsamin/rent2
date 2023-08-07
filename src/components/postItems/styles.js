@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native'
 
+import colors from '../../modal/color'
+
 const styles = StyleSheet.create({
   safeAreaViewForAndroid: {
     paddingTop: Platform.OS === 'android' ? 25 : 0,
@@ -15,11 +17,16 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: colors.whiteColor,
     marginHorizontal: 10,
     marginVertical: 10,
     borderRadius: 10,
     padding: 5,
+    shadowColor: colors.blackColor,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.18,
+    shadowRadius: 2,
+    elevation: 5,
   },
   postImage: {
     height: 100,
@@ -31,17 +38,13 @@ const styles = StyleSheet.create({
   },
   postContentWrap: {
     justifyContent: 'space-around',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.18,
-    shadowRadius: 2,
-    elevation: 5,
+    backgroundColor: colors.whiteColor,
   },
   postTitle: { fontWeight: 'bold' },
-  postLocation: { color: 'grey' },
+  postLocation: { color: colors.greyColor },
   postPricing: {
-    color: '#fec85c',
-    backgroundColor: '#293241',
+    color: colors.primaryColor,
+    backgroundColor: colors.secondaryColor,
     borderRadius: 10,
     padding: 5,
     alignSelf: 'flex-start',
