@@ -20,6 +20,10 @@ const Listing = () => {
   // Hooks for image data
   const [imageData, setImageData] = useState([])
   const [category, setCategory] = useState({ catID: 0, catName: 'Category' })
+  const [location, setLocation] = useState({ locID: 0, locName: 'Location' })
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [rent, setRent] = useState('')
 
   // Auth related
   Auth.currentAuthenticatedUser()
@@ -45,6 +49,10 @@ const Listing = () => {
         console.log(route.params)
         //setCategory({ catID: route.params.catID, catName: route.params.catName })
         setCategory(route.params)
+      } else if (route.params.locID !== undefined) {
+        console.log(route.params)
+        //setLocation({ locID: route.params.locID, locName: route.params.locName })
+        setLocation(route.params)
       }
     }
   })
@@ -84,27 +92,27 @@ const Listing = () => {
         <AntDesign name="rightcircle" size={24} color={colors.secondaryColor} />
       </Pressable>
 
-      <View style={styles.categoryContainer}>
+      <Pressable style={styles.categoryContainer} onPress={() => navigation.navigate('SelectLocation')}>
         <View style={styles.categorySecondaryContainer}>
           <Entypo name="location" size={24} color={colors.secondaryColor} />
-          <Text style={{ marginLeft: 10 }}>Location</Text>
+          <Text style={{ marginLeft: 10 }}>{location.locName}</Text>
         </View>
         <AntDesign name="rightcircle" size={24} color={colors.secondaryColor} />
-      </View>
+      </Pressable>
 
       <View style={styles.inputTextStyle}>
         <MaterialIcons name="title" size={24} color={colors.secondaryColor} />
-        <TextInput placeholder="Adv Title" style={{ marginLeft: 10 }} />
+        <TextInput placeholder="Adv Title" style={{ marginLeft: 10, width: '100%' }} onChangeText={text => setTitle(text)} />
       </View>
 
       <View style={styles.inputTextStyle}>
         <MaterialIcons name="description" size={24} color={colors.secondaryColor} />
-        <TextInput placeholder="Write a Description" style={{ marginLeft: 10 }} />
+        <TextInput placeholder="Write a Description" style={{ marginLeft: 10, width: '100%' }} onChangeText={text => setDescription(text)} multiline={true} numberOfLines={3} />
       </View>
 
       <View style={[styles.inputTextStyle, { width: '50%' }]}>
         <FontAwesome name="rupee" size={24} color={colors.secondaryColor} />
-        <TextInput placeholder="Add a value" style={{ marginLeft: 10 }} />
+        <TextInput placeholder="Add a value" style={{ marginLeft: 10 }} onChangeText={text => setRent(text)} keyboardType="number-pad" />
       </View>
 
       <View style={styles.submitButton}>
