@@ -19,6 +19,8 @@ import styles from './styles'
 const Listing = () => {
   // Hooks for image data
   const [imageData, setImageData] = useState([])
+  const [category, setCategory] = useState({ catID: 0, catName: 'Category' })
+
   // Auth related
   Auth.currentAuthenticatedUser()
     .then(user => {
@@ -27,7 +29,7 @@ const Listing = () => {
     })
     .catch(err => {
       console.log(err)
-      //throw err
+      throw err
     })
 
   const navigation = useNavigation()
@@ -39,6 +41,10 @@ const Listing = () => {
     } else {
       if (route.params.imageData !== undefined) {
         setImageData(route.params.imageData)
+      } else if (route.params.catID !== undefined) {
+        console.log(route.params)
+        //setCategory({ catID: route.params.catID, catName: route.params.catName })
+        setCategory(route.params)
       }
     }
   })
@@ -73,7 +79,7 @@ const Listing = () => {
       <Pressable style={styles.categoryContainer} onPress={() => navigation.navigate('SelectCategory')}>
         <View style={styles.categorySecondaryContainer}>
           <Ionicons name="options" size={24} color={colors.secondaryColor} />
-          <Text style={{ marginLeft: 10 }}>Category</Text>
+          <Text style={{ marginLeft: 10 }}>{category.catName}</Text>
         </View>
         <AntDesign name="rightcircle" size={24} color={colors.secondaryColor} />
       </Pressable>
