@@ -6,6 +6,7 @@ import BottomTabNav from './BottomTabNavigator'
 import Home from '../screens/Home'
 import SelectPhotosScreen from '../screens/SelectPhotos'
 import PostDetails from '../screens/PostDetails'
+import SelectCategory from '../screens/SelectCategory'
 
 import colors from '../modal/color'
 
@@ -21,6 +22,7 @@ const Route = () => {
         <Stack.Screen name="BottomTabNav" component={BottomTabNav} options={{ headerShown: false }} />
         <Stack.Screen name="PostDetails" component={PostDetails} options={{ headerShown: false }} />
         <Stack.Screen name="SelectPhotos" component={SelectPhotosScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="SelectCategory" component={SelectCategory} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

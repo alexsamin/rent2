@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import { Pressable, View, Text, TextInput, ScrollView, Image } from 'react-native'
-import HeaderForMobile from '../../components/headerForMobile'
-import PostItems from '../../components/postItems'
+
 import { withAuthenticator } from 'aws-amplify-react-native'
 import { Auth } from 'aws-amplify'
 import { useNavigation } from '@react-navigation/native'
@@ -28,7 +27,7 @@ const Listing = () => {
     })
     .catch(err => {
       console.log(err)
-      throw err
+      //throw err
     })
 
   const navigation = useNavigation()
@@ -71,13 +70,13 @@ const Listing = () => {
         </View>
       </View>
 
-      <View style={styles.categoryContainer}>
+      <Pressable style={styles.categoryContainer} onPress={() => navigation.navigate('SelectCategory')}>
         <View style={styles.categorySecondaryContainer}>
           <Ionicons name="options" size={24} color={colors.secondaryColor} />
           <Text style={{ marginLeft: 10 }}>Category</Text>
         </View>
         <AntDesign name="rightcircle" size={24} color={colors.secondaryColor} />
-      </View>
+      </Pressable>
 
       <View style={styles.categoryContainer}>
         <View style={styles.categorySecondaryContainer}>
