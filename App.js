@@ -1,15 +1,15 @@
 import { StyleSheet, SafeAreaView, Platform } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import 'react-native-gesture-handler'
-import { Amplify, Auth } from 'aws-amplify'
+import { Amplify } from 'aws-amplify'
 import awsconfig from './src/aws-exports'
-Amplify.configure(awsconfig)
-// Amplify.configure({
-//   ...awsconfig,
-//   Analytics: {
-//     disabled: true,
-//   },
-// })
+// Amplify.configure(awsconfig)
+Amplify.configure({
+  ...awsconfig,
+  Analytics: {
+    disabled: true,
+  },
+})
 
 import colors from './src/modal/color'
 

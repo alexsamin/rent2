@@ -5,6 +5,13 @@ export default styles = StyleSheet.create({
   mainContainer: {
     margin: 20,
   },
+  imageStyle: {
+    height: 100,
+    width: 100,
+    marginBottom: 20,
+    marginTop: -5,
+    marginRight: 5,
+  },
   uploadImageButton: {
     display: 'flex',
     backgroundColor: colors.whiteColor,
@@ -56,7 +63,7 @@ export default styles = StyleSheet.create({
     backgroundColor: colors.secondaryColor,
     alignItems: 'center',
     paddingLeft: 20,
-    marginTop: 50,
+    marginTop: 5,
     // marginBottom: 20,
     elevation: 5,
   },

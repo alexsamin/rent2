@@ -1,0 +1,16 @@
+{
+  "resourceName": "RentDevProject",
+  "policyUUID": "d9625cfe",
+  "bucketName": "rent-dev-bucket",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
